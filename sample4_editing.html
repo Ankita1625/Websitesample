@@ -82,14 +82,36 @@
         nav {
             background-color: #16537e;
             color: white;
-            text-align: center;
             padding: 10px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        nav a {
+        nav .left {
+            display: flex;
+            align-items: center;
+        }
+        nav .left h1 {
+            margin: 0 15px;
+        }
+        nav .left input[type="search"] {
+            padding: 5px;
+            font-size: 1em;
+        }
+        nav .left button {
+            padding: 5px 10px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            background-color: #76a5af;
+            color: white;
+            margin-left: 5px;
+        }
+        nav .right a {
             color: white;
             text-decoration: none;
             margin: 0 15px;
@@ -153,6 +175,25 @@
             font-size: 2em;
             margin: 0 10px;
         }
+        footer .subscribe-form {
+            margin-top: 20px;
+        }
+        footer .subscribe-form input {
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        footer .subscribe-form button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            background-color: #16537e;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
         @media screen and (max-width: 768px) {
             .section-heading {
                 font-size: 2em;
@@ -162,16 +203,40 @@
             }
         }
     </style>
+    <script>
+        function searchWebsite() {
+            let input = document.getElementById('search-bar').value.toLowerCase();
+            let sections = document.querySelectorAll('.content, .section-heading, .section-content');
+            let found = false;
+            sections.forEach(section => {
+                section.style.backgroundColor = '';
+                if (section.innerText.toLowerCase().includes(input)) {
+                    if (!found) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                        found = true;
+                    }
+                    section.style.backgroundColor = 'blue';
+                }
+            });
+        }
+    </script>
 </head>
 <body>
 
 <!-- Navigation -->
 <nav>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#sales">Sales</a>
-    <a href="#contact">Contact Us</a>
+    <div class="left">
+        <h1>TOWN SQUARE</h1>
+        <input type="search" id="search-bar" placeholder="Search...">
+        <button onclick="searchWebsite()"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="right">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#sales">Sales</a>
+        <a href="#contact">Contact Us</a>
+    </div>
 </nav>
 
 <!-- Home Section -->
@@ -290,8 +355,40 @@
         <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fab fa-linkedin"></i></a>
     </div>
+    <div class="subscribe-form">
+        <input type="email" id="subscribe-email" placeholder="Enter your email to subscribe">
+        <button onclick="subscribe()">Subscribe</button>
+    </div>
     <p>&copy; 2024 Your Company. All rights reserved.</p>
 </footer>
+
+<script>
+    function subscribe() {
+        const email = document.getElementById('subscribe-email').value;
+        if (email) {
+            alert(`Subscribed with ${email}`);
+            // Add your subscription logic here
+        } else {
+            alert('Please enter a valid email');
+        }
+    }
+
+    function searchWebsite() {
+        let input = document.getElementById('search-bar').value.toLowerCase();
+        let sections = document.querySelectorAll('.content, .section-heading, .section-content');
+        let found = false;
+        sections.forEach(section => {
+            section.style.backgroundColor = '';
+            if (section.innerText.toLowerCase().includes(input)) {
+                if (!found) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                    found = true;
+                }
+                section.style.backgroundColor = '#76a5af';
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
