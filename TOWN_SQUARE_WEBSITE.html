@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Sales and Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .contact-form {
+            width: 55%;
+            margin: auto;
+            background-color: #76a5af;
+            padding: 2em;
+            border-radius: 10px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.5em;
+            margin: 0.5em 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background-color: #16537e;
+            color: #fff;
+            border: none;
+            padding: 0.5em 1em;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .parallax-contact {
+            background-image: url('Carimg/movieset.jpg');
+        }
+        /* new sales section */
+        .container2 {
+            width: 85%;
+            margin: auto;
+        }
+        .section-heading2 {
+            text-align: center;
+            font-size: 2em;
+            color: #ffffff;
+            margin: 2em 0;
+        }
+        .parallax2 {
+            min-height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .parallax-sale2 {
+            background-image: url('Carimg/star.jpg');
+        }
+        .section-content2 {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .section-content2 div {
+            background-color: #16537e;
+            color: #fff;
+            padding: 1em;
+            flex: 1;
+            margin: 0.5em;
+        }
+        /* New Style sales */
+        /* Navigation styles */
+        nav {
+            background-color: #16537e;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        nav .left {
+            display: flex;
+            align-items: center;
+        }
+        nav .left h1 {
+            margin: 0 15px;
+        }
+        nav .left input[type="search"] {
+            padding: 5px;
+            font-size: 1em;
+        }
+        nav .left button {
+            padding: 5px 10px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            background-color: #76a5af;
+            color: white;
+            margin-left: 5px;
+        }
+        nav .right a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+        /* Parallax sections */
+        .parallax {
+            min-height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .parallax-sale {
+            background-image: url('Carimg/star.jpg');
+        }
+        .sale-section {
+            padding: 2em 0;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* semi-transparent overlay */
+        }
+        .content {
+            z-index: 1;
+            position: relative;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .section-heading {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+        .section-content {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        /* Footer styles */
+        footer {
+            background-color: #76a5af;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+        footer .social-icons {
+            margin-top: 20px;
+        }
+        footer .social-icons a {
+            color: white;
+            font-size: 2em;
+            margin: 0 10px;
+        }
+        footer .subscribe-form {
+            margin-top: 20px;
+        }
+        footer .subscribe-form input {
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        footer .subscribe-form button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            background-color: #16537e;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        @media screen and (max-width: 768px) {
+            .section-heading {
+                font-size: 2em;
+            }
+            .section-content {
+                font-size: 1em;
+            }
+        }
+        /* Services Section specific styles */
+        #services {
+            background-image: url('Carimg2/gifts.jpg'); /* Parallax background image */
+        }
+        #services .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+        }
+        #services .content {
+            z-index: 1;
+            position: relative;
+            padding: 20px;
+            max-width: 1200px; /* Adjust max-width as needed */
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start; /* Align items at the start for better layout */
+        }
+        #services .section-title {
+            font-size: 2.5em;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #services .service-box {
+            width: calc(50% - 40px); /* Half of the container width minus spacing */
+            max-width: 400px; /* Maximum width of each box */
+            height: 300px; /* Adjust height as needed */
+            background-color: #16537e; /* Green background color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            margin: 20px; /* Spacing between boxes */
+        }
+        #services .service-box:hover {
+            transform: scale(1.05); /* Hover effect */
+        }
+        #services .service-box img {
+            max-width: 100%;
+            height: auto;
+        }
+        #services .service-box h2 {
+            font-size: 1.5em;
+            margin-top: 10px;
+            color: #ffffff;
+        }
+        #services .service-box p {
+            font-size: 1em;
+            color: #ffffff;
+        }
+
+        /* Media Query for smaller screens */
+        @media screen and (max-width: 768px) {
+            #services .service-box {
+                width: calc(100% - 40px); /* Full width on smaller screens */
+                margin: 10px;
+            }
+        }
+        /* About Section specific styles */
+#about {
+    background-image: url('Carimg2/gifts.jpg'); /* Parallax background image */
+}
+#about .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+}
+#about .content {
+    z-index: 1;
+    position: relative;
+    padding: 20px;
+    max-width: 1200px; /* Adjust max-width as needed */
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the start for better layout */
+}
+#about .section-heading {
+    font-size: 2.5em;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#about .section-content {
+    font-size: 1em;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Visit Counter Styles */
+.counter-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+.counter-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 200px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #76a5af;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.counter-label {
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.counter-display {
+    font-size: 35px;
+    color: #fff;
+}
+
+    </style>
+    <script>
+        function searchWebsite() {
+            let input = document.getElementById('search-bar').value.toLowerCase();
+            let sections = document.querySelectorAll('.content, .section-heading, .section-content');
+            let found = false;
+            sections.forEach(section => {
+                section.style.backgroundColor = '';
+                if (section.innerText.toLowerCase().includes(input)) {
+                    if (!found) {
+                        section.scrollIntoView({ behavior: 'smooth' });
+                        found = true;
+                    }
+                    section.style.backgroundColor = 'blue';
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="left">
+        <h1>TOWN SQUARE</h1>
+        <input type="search" id="search-bar" placeholder="Search...">
+        <button onclick="searchWebsite()"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="right">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#sales">Sales</a>
+        <a href="#community">Community</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+</nav>
+
+<!-- Home Section -->
+<section id="home" class="parallax" style="background-image: url('Carimg2/gifts.jpg');">
+    <div class="overlay"></div>
+    <div class="content">
+        <div class="section-heading">Welcome to TOWN SQUARE</div>
+        <div class="section-content">
+            <p>"Welcome to Town Square, your go-to platform for connecting with your local community. Whether you’re looking to stay updated with the latest local news, find exciting events, or discover local businesses, Town Square has it all. We believe in the power of community and are dedicated to fostering a vibrant, engaged, and thriving local environment."</p>
+        </div>
+        <!-- Video element added below the home content text -->
+        <video controls style="width: 80%; max-width: 500px; margin-top: 10px;">
+            <source src="Carimg/TOWN_SQUARE.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+
+
+<!-- Services Section -->
+<section id="services" class="parallax">
+    <div class="overlay"></div>
+    <div class="content">
+        <h1 class="section-title">Our Services</h1>
+
+        <div class="service-box">
+            <span class="fa fa-object-group" style="font-size: 3em;"></span>
+            <h2>Local News</h2>
+            <p>Stay informed with Town Square’s local news feature.</p>
+        </div>
+        <div class="service-box">
+            <span class="fa fa-calendar" style="font-size: 3em;"></span>
+            <h2>Event Organization</h2>
+            <p>Planning an event? Town Square makes it easy to create, manage, and promote your events.</p>
+        </div>
+        <div class="service-box">
+            <span class="fa fa-edit" style="font-size: 3em;"></span>
+            <h2>Business Directory</h2>
+            <p>Support your local businesses with our comprehensive business directory.</p>
+        </div>
+        <div class="service-box">
+            <span class="fa fa-users" style="font-size: 3em;"></span>
+            <h2>Community Forums</h2>
+            <p>Join the conversation in our community forums.</p>
+        </div>
+        <p style="color: white; margin-top: 20px;">Explore our wide range of services designed to bring joy and excitement to your life.</p>
+    </div>
+</section>
+
+<!-- Continue with your other sections (About, Sales, Contact, Footer) -->
+
+<!-- About Section -->
+<section id="about" class="parallax" style="background-image: url('Carimg2/gifts.jpg');">
+    <div class="overlay"></div>
+    <div class="content">
+        <div class="section-heading">About Our Mission</div>
+        <div class="section-content">
+            <p>At Town Square, our mission is to enhance local engagement and participation. We believe in the power of community and are committed to providing a platform that connects residents, businesses, and organizations for a more vibrant and thriving neighborhood.</p>
+            <p>Town Square was born out of a desire to create a more connected community. Our journey began with a simple idea: to provide a space where local residents, businesses, and organizations could come together. Since then, we’ve grown and achieved numerous milestones, all thanks to the support of our amazing community.</p>
+        </div>
+
+        <!-- Visit Counter -->
+        <div class="counter-container">
+            <div class="counter-box">
+                <div class="counter-label">Visitors</div>
+                <div id="counter1" class="counter-display">+0</div>
+            </div>
+            <div class="counter-box">
+                <div class="counter-label">Booking</div>
+                <div id="counter2" class="counter-display">+0</div>
+            </div>
+            <div class="counter-box">
+                <div class="counter-label">Connections</div>
+                <div id="counter3" class="counter-display">+0</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Sales Section -->
+<section id="sales" class="parallax" style="background-image: url('Carimg2/gifts.jpg');">
+    <div class="overlay"></div>
+    <div class="content">
+        <div class="section-heading">Local Bookings</div>
+        <div class="section-content">
+            <div>
+                <img src="Carimg2/bookingoffice.jpg" width="100%" alt="Booking Office" />
+                <h2>Convenient Access to Local Services and Activities</h2>
+                <p>Provide users with easy access to book local services, events, or activities directly through your platform.</p>
+            </div>
+            <div>
+                <img src="Carimg2/dateandtime.jpg" width="100%" alt="Date and Time" />
+                <h2>User-Friendly Booking Experience</h2>
+                <p>Offer features such as real-time availability, secure payments, and booking confirmations to enhance user experience.</p>
+            </div>
+            <div>
+                <img src="Carimg2/gifts.jpg" width="100%" alt="Gifts" />
+                <h2>Promotion of Local Engagement and Support</h2>
+                <p>Showcase exclusive deals, discounts, or packages available through bookings on your platform, incentivizing community involvement.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Sales Section -->
+<section id="community" class="parallax2 parallax-sale2">
+    <div class="content2">
+        <div class="container2">
+            <div class="section-heading2">
+                Community
+                <hr width="720" color="#76a5af">
+            </div>
+            <div class="section-content2">
+                <div>
+                    <img src="Carimg/community1.jpg" width="100%" alt="Booking Office" />
+                    <h2>Community Stories</h2>
+                    <p>Discover inspiring stories from your neighbors.</p>
+                </div>
+                <div>
+                    <img src="Carimg/community2.jpg" width="100%" alt="Date and Time" />
+                    <h2>Volunteer Opportunities</h2>
+                    <p>Explore a variety of volunteer opportunities in your area.</p>
+                </div>
+                <div>
+                    <img src="Carimg/community3.jpg" width="100%" alt="Gifts" />
+                    <h2>Local Projects</h2>
+                    <p>Stay informed about ongoing and upcoming community projects.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section -->
+<section class="parallax parallax-contact">
+    <div class="content">
+        <div class="container">
+            <div class="section-heading">
+                Contact
+                <hr width="70" color="#76a5af">
+            </div>
+            <form class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+                <label for="contact">Contact No</label>
+                <input type="tel" id="contact" name="contact">
+                <label for="query">Query</label>
+                <textarea id="query" name="query" rows="4"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer>
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="subscribe-form">
+        <input type="email" id="subscribe-email" placeholder="Enter your email to subscribe">
+        <button onclick="subscribe()">Subscribe</button>
+    </div>
+    <p>&copy; 2024 Your Company. All rights reserved.</p>
+</footer>
+
+<script>
+    function subscribe() {
+        const email = document.getElementById('subscribe-email').value;
+        if (email) {
+            alert(`Subscribed with ${email}`);
+            // Add your subscription logic here
+        } else {
+            alert('Please enter a valid email');
+        }
+    }
+
+    function searchWebsite() {
+        let input = document.getElementById('search-bar').value.toLowerCase();
+        let sections = document.querySelectorAll('.content, .section-heading, .section-content');
+        let found = false;
+        sections.forEach(section => {
+            section.style.backgroundColor = '';
+            if (section.innerText.toLowerCase().includes(input)) {
+                if (!found) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                    found = true;
+                }
+                section.style.backgroundColor = '#76a5af';
+            }
+        });
+    }
+</script>
+<script>
+    function animateCounter(target, start, end, duration) {
+        let startTime = null;
+
+        function step(currentTime) {
+            if (!startTime) startTime = currentTime;
+            const progress = currentTime - startTime;
+            const increment = Math.min(progress / duration, 1);
+            target.innerText = `+${Math.floor(start + increment * (end - start))}`;
+            if (progress < duration) {
+                requestAnimationFrame(step);
+            }
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    const counter1 = document.getElementById('counter1');
+    const counter2 = document.getElementById('counter2');
+    const counter3 = document.getElementById('counter3');
+
+    animateCounter(counter1, 0, 230, 2000);
+    animateCounter(counter2, 0, 130, 2000);
+    animateCounter(counter3, 0, 200, 2000);
+</script>
+
+</body>
+</html>
